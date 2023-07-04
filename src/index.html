@@ -1,15 +1,42 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>To Do App</title>
+  </head>
+  <link href="style.css" rel="stylesheet" />
+  <body>
+    <div class="contenedor">
+      <div class="cabecera">
+        <img
+          class="imgc"
+          src="https://dbdzm869oupei.cloudfront.net/img/sticker/preview/7445.png"
+          alt=""
+        />
+      </div>
+      <div class="textop">Tareas por hacer</div>
+      <div class="cuerpo"></div>
+      <div class="cabeza"></div>
+      <div class="agregar" id="formulario">
+        <input id="agg" type="text" placeholder="Ingresar tarea" /> <br />
+        <input id="boton1" type="button" value="Agregar" />
+      </div>
+      <div class="contador">
+        <span id="contarclick">0</span>
+        <p class="textT">
+          Tareas <br />
+          completadas
+        </p>
+      </div>
+      <div id="guardar" class="guardar">
+        <ol id="listaDeso"></ol>
 
-<head>
-	<title>Ejemplo básico</title>
-	<meta charset="UTF-8" />
-</head>
+        <center><p id="noExist">No hay tareas</p></center>
+        <!-- <div><center><p id="noExist">ex</p></center></div> -->
+      </div>
+    </div>
 
-<body>
-	<h1>La aplicación esta corriendo!</h1>
-
-	<script src="./index.js" type="module"></script>
-</body>
-
+    <script type="module" src="Js.js"></script>
+  </body>
 </html>
