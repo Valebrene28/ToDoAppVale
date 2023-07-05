@@ -1,18 +1,29 @@
+async function post(task) {
+  const respuesta = await fetch("http://localhost:3000/api/task", {
+    method: "POST",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(task),
+  });
+  const postDate = await respuesta.json();
+  return postDate;
+}
+async function getTask() {
+  const response = await fetch("http://localhost:3000/api/task", {
+    method: "GET",
+    headers: { "Content-type": "application/json; charset=UTF-8" },
+  });
+  const postGet = await response.json();
+  return postGet;
+}
 
-function post (tarea){
-    let tareaObj = {
-        tarea : tarea,
-        Id:1
-      }
-      
-      fetch('http://localhost:3000/api/task', {
-        method: "POST",
-        body: JSON.stringify(tareaObj),
-        headers: {"Content-type": "application/json; charset=UTF-8"}
-      })
-      .then(response => response.json()) 
-      .then(json => console.log(json))
-      .catch(err => console.log(err));
-    }
-
-export {post}
+async function deleteTask(id) {
+  const response = await fetch("http://localhost:3000/api/task/" + id, {
+    method: "DELETE",
+  });
+  const postDelete = await response.json();
+  return postDelete;
+}
+export { post, deleteTask, getTask };

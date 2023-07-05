@@ -1,8 +1,9 @@
-import { post } from "./APi.js";
+import { post, deleteTask } from "./APi.js";
 
 var lanzarT = window.document.querySelector("#boton1");
 var lista = window.document.querySelector("#listaDeso");
 let btn = document.getElementById("boton1");
+
 var contador = 0;
 
 function validaC() {
@@ -26,17 +27,22 @@ function validaC() {
   return checkbox;
 }
 
-function LanzarTarea() {
+async function LanzarTarea() {
   var texto = document.querySelector("#agg");
   var texto1 = texto.value;
 
-  post(texto1);
-
   if (texto1.trim() !== "") {
     var listap = document.createElement("li");
-    listap.id = "lbp";
+
+    let task = { task: texto1 };
+
+    let resultadoPost = await post(task);
+
+    listap.id = resultadoPost.id;
+
     let pTexto = document.createElement("p");
-    pTexto.id = "texto-lista"
+    pTexto.id = "texto-lista";
+
     pTexto.textContent = texto1;
     let eliminar = document.createElement("button");
     eliminar.id = "button";
@@ -55,7 +61,11 @@ function LanzarTarea() {
 
     eliminar.addEventListener("click", function () {
       if (listap) {
+        let lista12 = listap.id;
+        console.log(lista12);
+        deleteTask(lista12);
         listap.remove();
+
         let checkbox = listap.querySelector("input");
         let suma = document.getElementById("contarclick");
 
