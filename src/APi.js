@@ -13,7 +13,6 @@ async function post(task) {
 async function getTask() {
   const response = await fetch("http://localhost:3000/api/task", {
     method: "GET",
-    headers: { "Content-type": "application/json; charset=UTF-8" },
   });
   const postGet = await response.json();
   return postGet;
@@ -27,3 +26,5 @@ async function deleteTask(id) {
   return postDelete;
 }
 export { post, deleteTask, getTask };
+
+

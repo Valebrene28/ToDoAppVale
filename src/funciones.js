@@ -1,10 +1,59 @@
-import { post, deleteTask } from "./APi.js";
+import { post, deleteTask, getTask } from "./APi.js";
 
 var lanzarT = window.document.querySelector("#boton1");
 var lista = window.document.querySelector("#listaDeso");
 let btn = document.getElementById("boton1");
 
+var textoTare = document.getElementById("noExist");
 var contador = 0;
+document.addEventListener("DOMContentLoaded", cargarTareas);
+
+async function cargarTareas() {
+  let tareas = await getTask();
+  tareas.forEach((tarea) => {
+    crearVariables(tarea.id, tarea.task);
+  });
+}
+
+function crearVariables(id, texto1) {
+  var listap = document.createElement("li");
+  listap.id = id;
+  let pTexto = document.createElement("p");
+  pTexto.id = "texto-lista";
+  pTexto.textContent = texto1;
+  let eliminar = document.createElement("button");
+  eliminar.id = "button";
+  eliminar.textContent = "🗑️";
+  listap.appendChild(pTexto);
+  listap.appendChild(validaC());
+  listap.appendChild(eliminar);
+  lista.appendChild(listap);
+  textoTare.style.display = "none";
+  eliminar.addEventListener("click", function () {
+    if (listap) {
+      let lista12 = listap.id;
+      console.log(lista12);
+      deleteTask(lista12);
+      listap.remove();
+
+      let checkbox = listap.querySelector("input");
+      let suma = document.getElementById("contarclick");
+
+      if (checkbox.checked) {
+        contador--;
+        suma.innerHTML = contador;
+      }
+    }
+
+    const tamano = document.querySelectorAll("li");
+
+    if (tamano.length == 0) {
+      textoTare.style.display = "block";
+    }
+
+    //salida falsa eliminar
+  });
+}
 
 function validaC() {
   let checkbox = document.createElement("input");
@@ -32,57 +81,13 @@ async function LanzarTarea() {
   var texto1 = texto.value;
 
   if (texto1.trim() !== "") {
-    var listap = document.createElement("li");
-
     let task = { task: texto1 };
 
     let resultadoPost = await post(task);
 
-    listap.id = resultadoPost.id;
+    crearVariables(resultadoPost.id, resultadoPost.task);
 
-    let pTexto = document.createElement("p");
-    pTexto.id = "texto-lista";
-
-    pTexto.textContent = texto1;
-    let eliminar = document.createElement("button");
-    eliminar.id = "button";
-
-    eliminar.textContent = "🗑️";
-    listap.appendChild(pTexto);
-    listap.appendChild(validaC());
-
-    listap.appendChild(eliminar);
-
-    lista.appendChild(listap);
-
-    var textoTare = document.getElementById("noExist");
-    textoTare.style.display = "none";
     agg.value = "";
-
-    eliminar.addEventListener("click", function () {
-      if (listap) {
-        let lista12 = listap.id;
-        console.log(lista12);
-        deleteTask(lista12);
-        listap.remove();
-
-        let checkbox = listap.querySelector("input");
-        let suma = document.getElementById("contarclick");
-
-        if (checkbox.checked) {
-          contador--;
-          suma.innerHTML = contador;
-        }
-      }
-
-      const tamano = document.querySelectorAll("li");
-
-      if (tamano.length == 0) {
-        textoTare.style.display = "block";
-      }
-
-      //salida falsa eliminar
-    });
   } else {
     return alert("Inserte tarea");
   }
