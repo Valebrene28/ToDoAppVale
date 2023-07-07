@@ -25,6 +25,22 @@ async function deleteTask(id) {
   const postDelete = await response.json();
   return postDelete;
 }
-export { post, deleteTask, getTask };
+
+async function updateTask(task) {
+  const response = await fetch("http://localhost:3000/api/task/" + task.id, {
+    method: "PUT",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(task),
+  });
+  const updatedTask = await response.json();
+  return updatedTask;
+}
+
+
+export { post, deleteTask, getTask, updateTask };
+
 
 

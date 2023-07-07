@@ -1,43 +1,62 @@
-import { post, deleteTask, getTask } from "./APi.js";
+import { post, deleteTask, getTask, updateTask } from "./APi.js";
 
 var lanzarT = window.document.querySelector("#boton1");
 var lista = window.document.querySelector("#listaDeso");
 let btn = document.getElementById("boton1");
+var suma = document.getElementById("contarclick");
 
 var textoTare = document.getElementById("noExist");
 var contador = 0;
 document.addEventListener("DOMContentLoaded", cargarTareas);
 
+var task = {
+  task: "",
+  checked: false,
+};
+
 async function cargarTareas() {
   let tareas = await getTask();
+  let contadorAux = 0;
+
   tareas.forEach((tarea) => {
-    crearVariables(tarea.id, tarea.task);
+    crearVariables(tarea);
   });
+
+  for (let index = 0; index < tareas.length; index++) {
+    if (tareas[index].checked == true) {
+      contadorAux++;
+    }
+  }
+  suma.innerText = contadorAux;
+  contador = contadorAux;
 }
 
-function crearVariables(id, texto1) {
+function crearVariables(tarea) {
   var listap = document.createElement("li");
-  listap.id = id;
+  listap.id = tarea.id;
+
   let pTexto = document.createElement("p");
   pTexto.id = "texto-lista";
-  pTexto.textContent = texto1;
+  pTexto.textContent = tarea.task;
+
   let eliminar = document.createElement("button");
   eliminar.id = "button";
   eliminar.textContent = "🗑️";
+
   listap.appendChild(pTexto);
-  listap.appendChild(validaC());
+  listap.appendChild(validaC(tarea));
   listap.appendChild(eliminar);
   lista.appendChild(listap);
   textoTare.style.display = "none";
-  eliminar.addEventListener("click", function () {
+
+  eliminar.addEventListener("click", async function () {
     if (listap) {
       let lista12 = listap.id;
       console.log(lista12);
-      deleteTask(lista12);
+      await deleteTask(lista12);
       listap.remove();
 
       let checkbox = listap.querySelector("input");
-      let suma = document.getElementById("contarclick");
 
       if (checkbox.checked) {
         contador--;
@@ -55,12 +74,13 @@ function crearVariables(id, texto1) {
   });
 }
 
-function validaC() {
+function validaC(tarea) {
   let checkbox = document.createElement("input");
   checkbox.id = "input";
   checkbox.setAttribute("type", "checkbox");
+  checkbox.checked = tarea.checked;
 
-  checkbox.addEventListener("click", function () {
+  checkbox.addEventListener("click", async function () {
     if (checkbox.checked) {
       let suma = document.getElementById("contarclick");
       contador++;
@@ -72,6 +92,8 @@ function validaC() {
       suma.innerHTML = contador;
       //validacion check
     }
+    tarea.checked = checkbox.checked;
+    await updateTask(tarea);
   });
   return checkbox;
 }
@@ -81,11 +103,11 @@ async function LanzarTarea() {
   var texto1 = texto.value;
 
   if (texto1.trim() !== "") {
-    let task = { task: texto1 };
+    task.task = texto1;
 
     let resultadoPost = await post(task);
 
-    crearVariables(resultadoPost.id, resultadoPost.task);
+    crearVariables(resultadoPost);
 
     agg.value = "";
   } else {
