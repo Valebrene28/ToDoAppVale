@@ -1,199 +1,70 @@
-@media (max-width: 1100px) {
-body {
-  background-color: rgb(220, 220, 220);
-}
-.contenedor {
-  width: 1300px;
-  height: 700px;
-  background-color: rgb(255, 255, 255);
-  margin-left: 230px;
-  margin-top: 50px;
-  margin-right: 200px;
-}
 
-.cabecera {
-  background-color: rgb(204, 128, 170);
-  height: 60px;
-}
 
-.textop {
-  background-color: white;
-  height: 80px;
-}
 
-.agregar {
-  float: left;
-  background-color: rgb(255, 255, 255);
-  width: 800px;
-  height: 150px;
-  margin-left: 60px;
-}
-
-.contador {
-  float: right;
-  background-color: rgb(255, 255, 255);
-  width: 301px;
-  height: 150px;
-  margin-right: 59px;
-}
-
-.guardar {
-  width: 1200px;
-  background-color: rgba(204, 128, 170, 0.6);
-  margin-top: 150px;
-  height: 400px;
-  margin-left: 55px;
-  position: absolute;
-}
-
-.textop {
-  font-size: 50px;
-  text-align: center;
-}
-
-#agg {
-  font-size: 30px;
-  width: 292px;
-}
-
-#boton1 {
-  font-size: 30px;
-  background-color: rgb(156, 95, 128);
-  color: white;
-  width: 300px;
-}
-.textT {
-  float: left;
-  font-size: 25px;
-  text-align: center;
-  margin-top: 50px;
-}
-#contarclick {
-  background-color: rgb(163, 90, 129);
-  border-radius: 80px;
-  float: right;
-  width: 120px;
-  height: 120px;
-  margin-right: 50px;
-
-  border-color: 2px black;
-  text-align: center;
-  font-size: 50px;
-}
-
-#tabla {
-  width: 1200px;
-  height: 350px;
-  background-color: rgb(135, 136, 136);
-  border: 20px;
-  border-color: black;
-}
-
-#liste {
-  font-size: 80px;
-}
-#mensajeVacio {
-  position: relative;
-  background-color: rgb(197, 197, 19);
-}
-
-#noExist {
-  margin-top: 220px;
-  font-size: 35px;
-  color: rgba(116, 9, 87, 0.596);
-}
-
-.imgc {
-  margin-top: 6px;
-  margin-left: 6px;
-  width: 150px;
-}
-
-#lbp {
-  font-size: 21px;
-  color: rgb(105, 25, 68);
-  width: 1100px;
-}
-
-#button {
-  size: 20px;
-  width: 70px;
-  height: 30px;
-  border-radius: 1000px;
-  margin-left: 500px;
-  float: right;
-}
-
-#input {
-  width: 20px;
-  height: 20px;
-}
-
-#texto-lista {
-  font-size: 30px;
-  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
-}
-}
-@media (min-width: 769px) {
+@media (min-width: 1024px) {
   body {
-    background-color: rgb(220, 220, 220);
+    background-image: url("https://lh3.googleusercontent.com/_7PO7TYuv1oSlcysShXK2kd9edXpCBraZHsIQ3he1tYfCGm6LG6vWKxVZLYRMV6q77SCj5d9bvVPouY5c1BKewAm=w640-h400-e365-rj-sc0x00ffffff");
+  }
+  @font-face {
+    font-family:"mifuente" ;
+
+    src: url("ROSSELA.otf");
   }
   .contenedor {
-    width: 710px;
-    height: 800px;
+    width: 1300px;
+    height: 700px;
     background-color: rgb(255, 255, 255);
-    margin-left: 2%;
+    margin-left: 230px;
     margin-top: 50px;
-    margin-right: 5%;
+    margin-right: 200px;
   }
-  
+
   .cabecera {
     background-color: rgb(204, 128, 170);
     height: 60px;
   }
-  
+
   .textop {
     background-color: white;
-    height: 60px;
-   
+    height: 80px;
+    font-family: "mifuente";
   }
 
   .agregar {
     float: left;
-    background-color: rgb(186, 71, 71);
-    width: 300px;
-    height: 80px;
-    margin-left: 20px;
+    background-color: rgb(255, 255, 255);
+    width: 800px;
+    height: 150px;
+    margin-left: 60px;
   }
-  
+
   .contador {
     float: right;
     background-color: rgb(255, 255, 255);
     width: 301px;
     height: 150px;
-    margin-right: 20px;
-    
+    margin-right: 59px;
   }
-  
+
   .guardar {
-    width: 670px;
+    width: 1200px;
     background-color: rgba(204, 128, 170, 0.6);
     margin-top: 150px;
-    height: 55%;
-    margin-left: 20px;
+    height: 400px;
+    margin-left: 55px;
     position: absolute;
   }
-  
+
   .textop {
     font-size: 50px;
     text-align: center;
   }
-  
+
   #agg {
     font-size: 30px;
     width: 292px;
   }
-  
+
   #boton1 {
     font-size: 30px;
     background-color: rgb(156, 95, 128);
@@ -213,12 +84,12 @@ body {
     width: 120px;
     height: 120px;
     margin-right: 50px;
-  
+
     border-color: 2px black;
     text-align: center;
     font-size: 50px;
   }
-  
+
   #tabla {
     width: 1200px;
     height: 350px;
@@ -226,7 +97,7 @@ body {
     border: 20px;
     border-color: black;
   }
-  
+
   #liste {
     font-size: 80px;
   }
@@ -234,25 +105,32 @@ body {
     position: relative;
     background-color: rgb(197, 197, 19);
   }
-  
+
   #noExist {
     margin-top: 220px;
     font-size: 35px;
     color: rgba(116, 9, 87, 0.596);
   }
-  
+
   .imgc {
     margin-top: 6px;
     margin-left: 6px;
-    width: 150px;
+    width: 130px;
+    float: left;
   }
-  
+  .imgc1 {
+    margin-top: 6px;
+    margin-left: 6px;
+    width: 130px;
+    float: right;
+  }
+
   #lbp {
     font-size: 21px;
     color: rgb(105, 25, 68);
     width: 1100px;
   }
-  
+
   #button {
     size: 20px;
     width: 70px;
@@ -261,30 +139,25 @@ body {
     margin-left: 500px;
     float: right;
   }
-  
+
   #input {
     width: 20px;
     height: 20px;
   }
-  
+
   #texto-lista {
     font-size: 30px;
     font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   }
-
-
-
-
-
-
-
-
 }
-
-
-@media (min-width: 1030px) {
+@media (max-width: 1024px) {
   body {
-    background-color: rgb(220, 220, 220);
+    background-image: url("https://lh3.googleusercontent.com/_7PO7TYuv1oSlcysShXK2kd9edXpCBraZHsIQ3he1tYfCGm6LG6vWKxVZLYRMV6q77SCj5d9bvVPouY5c1BKewAm=w640-h400-e365-rj-sc0x00ffffff");
+  }
+  @font-face {
+    font-family:"mifuente" ;
+
+    src: url("ROSSELA.otf");
   }
   .contenedor {
     width: 710px;
@@ -294,17 +167,18 @@ body {
     margin-top: 50px;
     margin-right: 5%;
   }
-  
+
   .cabecera {
     background-color: rgb(204, 128, 170);
     height: 60px;
   }
-  
+
   .textop {
     background-color: white;
     height: 60px;
-   
+    font-family: "mifuente"
   }
+
 
   .agregar {
     float: left;
@@ -313,16 +187,15 @@ body {
     height: 80px;
     margin-left: 20px;
   }
-  
+
   .contador {
     float: right;
     background-color: rgb(255, 255, 255);
     width: 301px;
     height: 150px;
     margin-right: 20px;
-    
   }
-  
+
   .guardar {
     width: 670px;
     background-color: rgba(204, 128, 170, 0.6);
@@ -331,17 +204,17 @@ body {
     margin-left: 20px;
     position: absolute;
   }
-  
+
   .textop {
     font-size: 50px;
     text-align: center;
   }
-  
+
   #agg {
     font-size: 30px;
     width: 292px;
   }
-  
+
   #boton1 {
     font-size: 30px;
     background-color: rgb(156, 95, 128);
@@ -361,12 +234,12 @@ body {
     width: 120px;
     height: 120px;
     margin-right: 50px;
-  
+
     border-color: 2px black;
     text-align: center;
     font-size: 50px;
   }
-  
+
   #tabla {
     width: 1200px;
     height: 350px;
@@ -374,7 +247,7 @@ body {
     border: 20px;
     border-color: black;
   }
-  
+
   #liste {
     font-size: 80px;
   }
@@ -382,25 +255,32 @@ body {
     position: relative;
     background-color: rgb(197, 197, 19);
   }
-  
+
   #noExist {
     margin-top: 220px;
     font-size: 35px;
     color: rgba(116, 9, 87, 0.596);
   }
-  
+
   .imgc {
     margin-top: 6px;
     margin-left: 6px;
-    width: 150px;
+    width: 100px;
+    display: none;
   }
-  
+  .imgc1 {
+    margin-top: 6px;
+    margin-left: 6px;
+    width: 100px;
+    display: none;
+  }
+
   #lbp {
     font-size: 21px;
     color: rgb(105, 25, 68);
     width: 1100px;
   }
-  
+
   #button {
     size: 20px;
     width: 70px;
@@ -409,22 +289,15 @@ body {
     margin-left: 500px;
     float: right;
   }
-  
+
   #input {
     width: 20px;
     height: 20px;
   }
-  
+
   #texto-lista {
     font-size: 30px;
     font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   }
-
-
-
-
-
-
-
-
 }
+
